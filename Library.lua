@@ -777,13 +777,13 @@ do
                 );
 
                 Button.InputBegan:Connect(function(Input)
-                    if Input.UserInputType ~= Enum.UserInputType.MouseButton1 then
-                        return
-                    end
+    if Input.UserInputType ~= Enum.UserInputType.MouseButton1
+    and Input.UserInputType ~= Enum.UserInputType.Touch then
+        return
+    end
 
-                    Callback()
-                end)
-            end
+    Callback()
+end)
 
             ContextMenu:AddOption('Copy color', function()
                 Library.ColorClipboard = ColorPicker.Value
