@@ -3497,10 +3497,11 @@ function Library:CreateWindow(...)
         end;
 
         TabButton.InputBegan:Connect(function(Input)
-            if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-                Tab:ShowTab();
-            end;
-        end);
+    if Input.UserInputType == Enum.UserInputType.MouseButton1
+    or Input.UserInputType == Enum.UserInputType.Touch then
+        Tab:ShowTab()
+    end
+end)
 
         -- This was the first tab added, so we show it by default.
         if #TabContainer:GetChildren() == 1 then
